@@ -1,0 +1,65 @@
+# NEXUS Build Tasks
+
+- [x] Create implementation plan
+- [x] Scaffold Vite + React project
+- [x] Install dependencies (recharts, d3, framer-motion, lucide-react, tailwind)
+- [x] Configure Tailwind + design tokens + CSS keyframes
+- [x] Build mock data (mockHosts.js — 25 hosts, all types, seeded drama)
+- [x] Build hooks (useLiveData, useRecalibrate)
+- [x] Build UI primitives (VeinCard, GlitchWrapper, Toast, PulseGlow)
+- [x] Build layout (Topbar, HostRoster, RosterRow)
+- [x] Build panels
+  - [x] FusionIntegrityGauge
+  - [x] BioSyncGraph
+  - [x] CognitionDriftRadar
+  - [x] GenomeMap (D3)
+  - [x] InteriorView (SVG pan/zoom)
+  - [x] IncidentFeed
+  - [x] ComplianceBadge
+  - [x] CompliancePressureMeter
+  - [x] QuickActions
+- [x] Advanced Laboratory Theme Upgrade
+  - [x] SpecimenContainment panel (canvas cell simulation)
+  - [x] Three-column complex InteriorView cortex scanner
+  - [x] Biometric security LoginConsole gate
+  - [x] Three.js WebGL 3D Specimen Heart Visualizer
+  - [x] Duplex GeneSequencer & TissueScanner histology panels
+  - [x] State synchronization (Sedation drop, compliance lockdown overlay)
+  - [x] Three.js WebGL 3D Post-Incubation Creature visualizer
+  - [x] TACTICAL TELEMETRY // INCUBATION LAB FEED switch
+  - [x] Glass cylinder WebGL incubation chamber tank simulation
+  - [x] Procedural whole-body geometries for gestated creatures
+  - [x] Liquid drainage physics (creature drops, bubbles stop, oxygen depletes)
+- [x] 25 Organism 3D Specimen Gallery
+  - [x] Align mockHosts.js data to official 25-entry roster
+  - [x] Create OrganismSpecimen3D procedural geometry generator
+  - [x] Implement deterministic name-hash seeding
+  - [x] Implement morphology family geometries (branching, mycelial, helix, low-poly)
+  - [x] Implement shape modifiers for status tiers (scale, vertex noise, jitter)
+  - [x] Connect IncubationLabVault3D with selection list and focused viewport camera
+- [x] Interface Spacing & Transition Polish
+  - [x] Streamline LoginConsole by removing passcode keypad
+  - [x] Add large glowing rotating concentric retinal scanner button
+  - [x] Implement vertical laser scan lines and decrypt loaders on login click
+  - [x] Audit card paddings (upgraded all VeinCards to p-6 / 24px)
+  - [x] Adjust LineChart margins in BioSyncGraph to prevent boundary alignment issues
+- [x] Caseload Division & Layout Polish
+  - [x] Fix telemetry box spacing at the bottom of SpecimenContainment to avoid border overlaps
+  - [x] Convert DNA transition to load incubator gene strands instead of matching user DNA
+  - [x] Create 3 doctors (Dr. Ama Reyes, Dr. Caleb Vance, Dr. Elena Rostova)
+  - [x] Partition 25 patients (hosts) across these 3 doctors in mock data
+  - [x] Add Clinician Caseload filter dropdown in HostRoster
+  - [x] Bind Topbar ID badge to dynamically show the assigned doctor of the selected host
+- [x] Biological Nomenclature Shift
+  - [x] Rename Fusion Integrity, Bio-Sync, Cognition Drift, Genome Map to biological parameters
+  - [x] Rename Incident Feed, Specimen Containment, and Histology scan to pathology equivalents
+  - [x] Map compliance levels to Bio-Approved, Pathology Review, and Critical Mutation
+  - [x] Change Quick Actions, Sedate, and Recalibrate to clinical therapeutic terminology
+  - [x] Update Topbar switches to Biological Telemetry and Gestation Visuals
+- [x] HUD Roster Grid Layout Organization
+  - [x] Embed CONSOLE, 3D GENOME, and 3D INTERIOR tab selector in patient panel header
+  - [x] Arrange CONSOLE tab into 3-row grid layout matching reference screenshot
+  - [x] Pinned clinical actions grid (QuickActions) inside Row 2 grid cell
+  - [x] Style 3D GENOME tab to show D3 force networks, nucleotide feeds, and histology cards
+  - [x] Style 3D INTERIOR tab to show zoomable cerebrospinal scanner and Three.js 3D models side-by-side
+- [x] Verify build runs (npm run build successful!)

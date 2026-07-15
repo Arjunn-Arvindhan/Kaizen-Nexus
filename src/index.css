@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+/* =====================================================
+   NEXUS SYNTH-MEDIC CONSOLE — Global Styles
+   ===================================================== */
+
+:root {
+  --bg-base: #081015;
+  --bg-card: #0d1a21;
+  --bg-card-hover: #112230;
+  --color-stable: #45D9C4;
+  --color-stable-dim: rgba(69, 217, 196, 0.15);
+  --color-stable-glow: rgba(69, 217, 196, 0.4);
+  --color-alert: #B58BFF;
+  --color-alert-dim: rgba(181, 139, 255, 0.15);
+  --color-alert-glow: rgba(181, 139, 255, 0.4);
+  --color-watch: #F59E0B;
+  --color-watch-dim: rgba(245, 158, 11, 0.15);
+  --color-watch-glow: rgba(245, 158, 11, 0.35);
+  --color-critical: #EF4444;
+  --color-critical-dim: rgba(239, 68, 68, 0.15);
+  --color-critical-glow: rgba(239, 68, 68, 0.35);
+  --color-text: #F2FBFA;
+  --color-text-muted: rgba(242, 251, 250, 0.55);
+  --color-text-dim: rgba(242, 251, 250, 0.3);
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', Consolas, monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  background: var(--bg-base);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* =====================================================
+   SCROLLBAR THEMING
+   ===================================================== */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(69, 217, 196, 0.2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(69, 217, 196, 0.4); }
+
+/* =====================================================
+   KEYFRAMES
+   ===================================================== */
+
+@keyframes pulse-glow-stable {
+  0%, 100% { box-shadow: 0 0 8px rgba(69, 217, 196, 0.2), 0 0 20px rgba(69, 217, 196, 0.08); }
+  50%       { box-shadow: 0 0 16px rgba(69, 217, 196, 0.4), 0 0 40px rgba(69, 217, 196, 0.15); }
+}
+
+@keyframes pulse-glow-alert {
+  0%, 100% { box-shadow: 0 0 8px rgba(181, 139, 255, 0.3), 0 0 20px rgba(181, 139, 255, 0.12); }
+  50%       { box-shadow: 0 0 20px rgba(181, 139, 255, 0.6), 0 0 50px rgba(181, 139, 255, 0.25); }
+}
+
+@keyframes pulse-glow-critical {
+  0%, 100% { box-shadow: 0 0 8px rgba(239, 68, 68, 0.3), 0 0 20px rgba(239, 68, 68, 0.12); }
+  50%       { box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 0 50px rgba(239, 68, 68, 0.25); }
+}
+
+@keyframes glitch-flicker {
+  0%, 100% { opacity: 1; transform: translateX(0); }
+  8%        { opacity: 0.85; transform: translateX(-1px); }
+  16%       { opacity: 1; transform: translateX(1.5px); }
+  24%       { opacity: 0.9; transform: translateX(-0.5px); }
+  32%       { opacity: 1; transform: translateX(0); }
+  72%       { opacity: 1; transform: translateX(0); }
+  78%       { opacity: 0.88; transform: translateX(1px); }
+  84%       { opacity: 1; transform: translateX(-1px); }
+  92%       { opacity: 0.95; transform: translateX(0.5px); }
+}
+
+@keyframes glitch-border {
+  0%, 100% { border-color: rgba(181, 139, 255, 0.4); }
+  20%       { border-color: rgba(181, 139, 255, 0.8); }
+  22%       { border-color: rgba(69, 217, 196, 0.6); }
+  24%       { border-color: rgba(181, 139, 255, 0.4); }
+  60%       { border-color: rgba(181, 139, 255, 0.5); }
+  62%       { border-color: rgba(239, 68, 68, 0.7); }
+  64%       { border-color: rgba(181, 139, 255, 0.4); }
+}
+
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes float-up {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes vein-pulse {
+  0%, 100% { stroke-opacity: 0.3; }
+  50%       { stroke-opacity: 0.7; }
+}
+
+@keyframes compliance-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* =====================================================
+   UTILITY CLASSES
+   ===================================================== */
+
+.font-mono { font-family: var(--font-mono) !important; }
+.font-sans  { font-family: var(--font-sans) !important; }
+
+.text-stable   { color: var(--color-stable); }
+.text-alert    { color: var(--color-alert); }
+.text-watch    { color: var(--color-watch); }
+.text-critical { color: var(--color-critical); }
+.text-muted    { color: var(--color-text-muted); }
+.text-dim      { color: var(--color-text-dim); }
+
+.glow-stable   { box-shadow: 0 0 12px var(--color-stable-glow); }
+.glow-alert    { box-shadow: 0 0 12px var(--color-alert-glow); }
+.glow-critical { box-shadow: 0 0 12px var(--color-critical-glow); }
+
+.pulse-stable   { animation: pulse-glow-stable 3s ease-in-out infinite; }
+.pulse-alert    { animation: pulse-glow-alert 2s ease-in-out infinite; }
+.pulse-critical { animation: pulse-glow-critical 1.5s ease-in-out infinite; }
+
+.glitch { animation: glitch-flicker 4s infinite; }
+
+/* =====================================================
+   VEIN CARD
+   ===================================================== */
+
+.vein-card {
+  background: var(--bg-card);
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.vein-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(69, 217, 196, 0.35) 0%,
+    rgba(69, 217, 196, 0.08) 30%,
+    transparent 50%,
+    rgba(69, 217, 196, 0.06) 70%,
+    rgba(69, 217, 196, 0.25) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.vein-card.status-emergence::before {
+  background: linear-gradient(
+    135deg,
+    rgba(181, 139, 255, 0.5) 0%,
+    rgba(181, 139, 255, 0.1) 30%,
+    transparent 50%,
+    rgba(181, 139, 255, 0.08) 70%,
+    rgba(181, 139, 255, 0.4) 100%
+  );
+  animation: glitch-border 3.5s infinite;
+}
+
+.vein-card.status-critical::before {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.5) 0%,
+    rgba(239, 68, 68, 0.1) 30%,
+    transparent 50%,
+    rgba(239, 68, 68, 0.08) 70%,
+    rgba(239, 68, 68, 0.35) 100%
+  );
+}
+
+.vein-card.status-watch::before {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 158, 11, 0.35) 0%,
+    rgba(245, 158, 11, 0.08) 40%,
+    transparent 60%,
+    rgba(245, 158, 11, 0.25) 100%
+  );
+}
+
+/* =====================================================
+   MISC
+   ===================================================== */
+
+.compliance-blink {
+  animation: compliance-blink 1.2s ease-in-out infinite;
+}
+
+.scanline-overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,0.03) 3px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+.recharts-wrapper, .recharts-surface { overflow: visible !important; }
